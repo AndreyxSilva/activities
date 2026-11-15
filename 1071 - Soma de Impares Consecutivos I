@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <iostream>
+
+
+using namespace std;
+
+int main() {
+ 
+    int X, Y, min, max;
+    int resultado = 0;
+    int i;
+    //cout << "X: "; 
+    cin >> X;
+    //cout << "Y: ";
+    cin >> Y;
+    
+    if(X > Y){
+        max = X;
+        min = Y;
+    }else{
+        max = Y;
+        min = X;
+    }
+ 
+ 
+ 
+    for(i = (min+1); i < max; i++){
+            if( i % 2 != 0){
+                resultado = resultado + i;
+            }
+        }
+ 
+    cout << resultado <<endl;
+    return 0;
+}
