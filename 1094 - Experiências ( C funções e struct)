@@ -1,0 +1,68 @@
+
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+struct Cobaias {
+    int coelhos = 0;
+    int ratos = 0;
+    int sapos = 0;
+};
+
+void contabilizar(Cobaias &c, int quantia, char tipo) {
+
+    switch (tipo) {
+        case 'C':
+            c.coelhos += quantia;
+            break;
+
+        case 'R':
+            c.ratos += quantia;
+            break;
+
+        case 'S':
+            c.sapos += quantia;
+            break;
+    }
+}
+
+void exibirResultado(const Cobaias &c) {
+
+    int total = c.coelhos + c.ratos + c.sapos;
+
+    cout << "Total: " << total << " cobaias\n";
+    cout << "Total de coelhos: " << c.coelhos << '\n';
+    cout << "Total de ratos: " << c.ratos << '\n';
+    cout << "Total de sapos: " << c.sapos << '\n';
+
+    cout << fixed << setprecision(2);
+
+    cout << "Percentual de coelhos: "
+         << (double)c.coelhos / total * 100 << " %\n";
+
+    cout << "Percentual de ratos: "
+         << (double)c.ratos / total * 100 << " %\n";
+
+    cout << "Percentual de sapos: "
+         << (double)c.sapos / total * 100 << " %\n";
+}
+
+int main() {
+
+    int qtdTestes, quantia;
+    char tipo;
+
+    Cobaias laboratorio;
+
+    cin >> qtdTestes;
+
+    for (int i = 0; i < qtdTestes; i++) {
+        cin >> quantia >> tipo;
+        contabilizar(laboratorio, quantia, tipo);
+    }
+
+    exibirResultado(laboratorio);
+
+    return 0;
+}
